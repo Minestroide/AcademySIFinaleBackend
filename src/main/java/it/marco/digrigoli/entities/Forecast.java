@@ -47,6 +47,8 @@ public class Forecast {
 	private ForecastUnits minutely15Units;
 	
 	public Long getUserId() {
+		if(this.getUser() == null) return 0L;
+		
 		return this.getUser().getId();
 	}
 	
