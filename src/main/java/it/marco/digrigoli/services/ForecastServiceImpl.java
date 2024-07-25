@@ -1,11 +1,13 @@
 package it.marco.digrigoli.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
 import it.marco.digrigoli.entities.Forecast;
 import it.marco.digrigoli.entities.Geocoding;
+import it.marco.digrigoli.entities.User;
 import it.marco.digrigoli.repositories.CustomForecastRepository;
 import it.marco.digrigoli.repositories.ForecastRepository;
 import it.marco.digrigoli.repositories.GeocodingRepository;
@@ -33,6 +35,20 @@ public class ForecastServiceImpl implements IForecastService {
 		return dbRepo.save(forecast);
 	}
 	
+	@Override
+	public List<Forecast> getByUser(User user) {
+		return dbRepo.getByUser(user);
+	}
+	
+	@Override
+	public Optional<Forecast> getById(Long id) {
+		return dbRepo.findById(id);
+	}
+	
+	@Override
+	public void delete(Forecast forecast) {
+		dbRepo.delete(forecast);
+	}
 
 
 }

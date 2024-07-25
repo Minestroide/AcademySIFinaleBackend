@@ -50,6 +50,8 @@ public class User {
 	private List<UserLog> userLogs;
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
 	private List<Geocoding> geocodings;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+	private List<Forecast> forecasts;
 	
 	public List<Long> getRoleIds() {
 		return roles.stream().map((role) -> {
